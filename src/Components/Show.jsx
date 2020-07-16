@@ -6,6 +6,10 @@ import Button from '@material-ui/core/Button';
 import {Link} from 'react-router-dom';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import PhoneIcon from '@material-ui/icons/Phone';
+import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
+import HomeIcon from '@material-ui/icons/Home';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const useStyles = makeStyles((theme) => ({
     name: {
@@ -24,9 +28,9 @@ const useStyles = makeStyles((theme) => ({
     },
     cv :{
         marginTop: theme.spacing(1), 
-        marginRight: theme.spacing(2),
+        marginRight: theme.spacing(40),
         marginBottom: theme.spacing(1),
-        marginLeft: theme.spacing(2),
+        marginLeft: theme.spacing(40),
     },
     subHeading: {
         color: 'white',
@@ -34,10 +38,10 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(1),
         fontSize: theme.spacing(2.2),
         margin : theme.spacing(0.8),
-        //marginRight : theme.spacing(30)
+        marginRight : theme.spacing(10),
     },
     left: {
-        marginLeft : theme.spacing(1),
+        marginLeft : theme.spacing(2),
         textAlign: 'left',
         fontWeight: 'inherit',
     },
@@ -52,6 +56,10 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: 'inherit',
         marginBottom: theme.spacing(0.5),
         marginTop: theme.spacing(0.5)
+    },
+    icon : {
+        //margin: theme.spacing(0),
+        marginTop: theme.spacing(0.7)
     }
   }));
 
@@ -152,6 +160,24 @@ function Show(props) {
                     </Grid>
                     <Grid item xs={12} sm={5}>
                     <Typography className={classes.subHeading}>CONTACT</Typography>
+                    <Grid container spacing={0}>
+                    <Grid item xs={12} sm={2}>
+                        
+                    <div className={classes.icon}>
+                    <Typography> <AlternateEmailIcon style={{ fontSize: 18 }} /> </Typography>
+                    <Typography> <PhoneIcon style={{ fontSize: 18 }} /> </Typography>
+                    <Typography> <HomeIcon style={{ fontSize: 18 }} /> </Typography>
+                    {
+                        linkedIn 
+                        !== '' ? 
+                        <Typography style={{ marginTop: 45 }}>
+                        <LinkedInIcon style={{ fontSize: 18 }} />
+                        </Typography>
+                        : null
+                    }
+                    </div>
+                    </Grid>
+                    <Grid item xs={12} sm={10}>
                     <Typography className={classes.left}>{email}</Typography>
                     <Typography className={classes.left}>{phone}</Typography>
                     <Typography className={classes.left}>{address}</Typography>
@@ -163,6 +189,8 @@ function Show(props) {
                         </Typography>
                         : null
                     }
+                    </Grid>
+                    </Grid>
 
                     {
                         props.data.skill !== undefined ? 

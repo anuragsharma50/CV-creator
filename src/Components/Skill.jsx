@@ -6,10 +6,10 @@ import {TextField} from 'formik-material-ui';
 import Grid from '@material-ui/core/Grid';
 import {Typography,Card,Button} from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
-import Tooltip from '@material-ui/core/Tooltip';
+import { useHistory } from "react-router-dom";
 
 const initialValues = {
-    Skill: ['']
+    skill: ['']
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -47,9 +47,11 @@ const useStyles = makeStyles((theme) => ({
 
 const Skill = (props) =>  {
 
+    let history = useHistory();
+
     const onSubmit = (values) => {
-        // props.returnVal(values)
-        console.log(values)
+        props.returnVal(values)
+        history.push('/show')
     }
 
 
@@ -71,16 +73,15 @@ const Skill = (props) =>  {
                         return(
                             <Form>
                             <div>
-                            <FieldArray name='Skill' >
+                            <FieldArray name='skill' >
                                 {
                                     (fieldArrayProps) => {
                                         const { form,push,remove } = fieldArrayProps
                                         const { values } = form
-                                        const { Skill } = values
-                                        //console.log('Form Errors',form.errors)
+                                        const { skill } = values
                                         return <div>
                                             {
-                                                Skill.map((Skill, index) => (
+                                                skill.map((skill, index) => (
                                                     <div key={index}>
                                                         <Card className={classes.Skill}>
                                                         <Typography variant="h5" gutterBottom className={classes.heading}>
@@ -88,13 +89,14 @@ const Skill = (props) =>  {
                                                         </Typography>
                                                         <div className={classes.inp}>
                                                         <Field
-                                                        name={`Skill[${index}]`} 
+                                                        name={`skill[${index}]`} 
                                                         component={TextField} 
                                                         fullWidth
+                                                        id={`skill${index}`}
                                                         />
                                                         </div>
                                                         { index > 0 && (
-                                                        <Tooltip title="Delete" aria-label="delete">
+                                                        // <Tooltip title="Delete" aria-label="delete">
                                                         <Button 
                                                         className={classes.subButton}
                                                         type='button' 
@@ -104,7 +106,7 @@ const Skill = (props) =>  {
                                                         fullWidth
                                                         > <DeleteIcon />
                                                         </Button>
-                                                        </Tooltip>
+                                                        // </Tooltip>
                                                         )}
                                                         </Card>
                                                     </div>
@@ -113,8 +115,9 @@ const Skill = (props) =>  {
                                             }
                                             <Grid container spacing={8}>
                                             <Grid item xs={12} sm={6}>
-                                            <Tooltip title="Add Skill" aria-label="add">
+                                            {/* <Tooltip title="Add Skill" aria-label="add"> */}
                                             <Button 
+                                                id='add'
                                                 className={classes.addButton}
                                                 variant="contained" 
                                                 color="primary"
@@ -122,10 +125,11 @@ const Skill = (props) =>  {
                                                 onClick={() => push('')}>
                                                  + 
                                             </Button>
-                                            </Tooltip>
+                                            {/* </Tooltip> */}
                                             </Grid>
                                             <Grid item xs={12} sm={6}>
                                             <Button 
+                                            id='submit'
                                             className={classes.submitButton} 
                                             variant="contained" 
                                             color="primary" 

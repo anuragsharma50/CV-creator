@@ -32,16 +32,33 @@ const useStyles = makeStyles((theme) => ({
         color: 'white',
         backgroundColor: 'black',
         padding: theme.spacing(1),
-        fontSize: theme.spacing(2),
-        margin : theme.spacing(0.4)
+        fontSize: theme.spacing(2.2),
+        margin : theme.spacing(0.8),
+        //marginRight : theme.spacing(30)
+    },
+    left: {
+        marginLeft : theme.spacing(1),
+        textAlign: 'left',
+        fontWeight: 'inherit',
+    },
+    edu: {
+        fontWeight: 'bold',
+        marginLeft : theme.spacing(1),
+        textAlign: 'left',
+    },
+    subEdu : {
+        marginLeft : theme.spacing(1),
+        textAlign: 'left',
+        fontWeight: 'inherit',
+        marginBottom: theme.spacing(0.5),
+        marginTop: theme.spacing(0.5)
     }
   }));
 
 function Show(props) {
     const classes = useStyles();
-    console.log(props.parsonalInfo)
 
-    if(props.parsonalInfo.name === undefined){
+    if(props.data.name === undefined){
         return (
             <div className={classes.noInput}>
             <Typography className={classes.text}>Please fill Personal Details form to view CV.</Typography>
@@ -53,7 +70,7 @@ function Show(props) {
     }
 
     else {
-        const {name,email,phone,address,linkedIn} = props.parsonalInfo
+        const {name,email,phone,address,linkedIn} = props.data
         return (
             <div>
                 <Card className={classes.cv}>
@@ -61,16 +78,108 @@ function Show(props) {
                 <Typography className={classes.name}>{name.toUpperCase()}</Typography>
                 <Grid container spacing={8}>
                     <Grid item xs={12} sm={7}>       
-                        
+                        {
+                            props.data.objective !== undefined ?
+                            <div>
+                                <Typography className={classes.subHeading}>OBJECTIVE</Typography>
+                                <Typography className={classes.left}>{props.data.objective}</Typography>
+                            </div>
+                            :
+                            null
+                        }
+
+                    {
+                        props.data.edu !== undefined ? 
+                        <div>
+                        <Typography className={classes.subHeading}>EDUCATION</Typography>
+                        <ul>
+                            {   
+                                props.data.edu.map((education,id) => 
+                                    <div key={id}>
+                                    <li className={classes.edu}>{education.school}</li>
+                                    <h5 className={classes.subEdu}>{education.year}</h5>
+                                    <h5 className={classes.subEdu}>{education.course}</h5>
+                                    <h5 className={classes.subEdu}>{education.grade}</h5>
+                                    </div>
+                                )
+                            }
+                        </ul>
+                        </div>
+                        :
+                        null
+                    }
+
+                    {
+                        props.data.projects !== undefined ? 
+                        <div>
+                        <Typography className={classes.subHeading}>PROJECTS</Typography>
+                        <ul>
+                            {   
+                                props.data.projects.map((project,id) => 
+                                    <div key={id}>
+                                    <li className={classes.edu}>{project.title}</li>
+                                    <h5 className={classes.subEdu}>{project.desc}</h5>
+                                    </div>
+                                )
+                            }
+                        </ul>
+                        </div>
+                        :
+                        null
+                    }
+
+                    {
+                        props.data.experience !== undefined ? 
+                        <div>
+                        <Typography className={classes.subHeading}>EXPERIENCE</Typography>
+                        <ul>
+                            {   
+                                props.data.experience.map((experience,id) => 
+                                    <div key={id}>
+                                    <li className={classes.edu}>{experience.company}</li>
+                                    <h5 className={classes.subEdu}>{experience.title}</h5>
+                                    <h5 className={classes.subEdu}>{experience.from} - {experience.to}</h5>
+                                    <h5 className={classes.subEdu}>{experience.details}</h5>
+                                    </div>
+                                )
+                            }
+                        </ul>
+                        </div>
+                        :
+                        null
+                    }
+
                     </Grid>
                     <Grid item xs={12} sm={5}>
                     <Typography className={classes.subHeading}>CONTACT</Typography>
-                    <Typography >{email}</Typography>
-                    <Typography>{phone}</Typography>
-                    <Typography>{address}</Typography>
-                    <Typography>
-                    {linkedIn}
-                    </Typography>
+                    <Typography className={classes.left}>{email}</Typography>
+                    <Typography className={classes.left}>{phone}</Typography>
+                    <Typography className={classes.left}>{address}</Typography>
+                    {
+                        linkedIn 
+                        !== '' ? 
+                        <Typography className={classes.left}>
+                        {linkedIn}
+                        </Typography>
+                        : null
+                    }
+
+                    {
+                        props.data.skill !== undefined ? 
+                        <div>
+                        <Typography className={classes.subHeading}>SKILLS</Typography>
+                        <ul>
+                            {   
+                                props.data.skill.map((skill,id) => 
+                                    <li key={id} className={classes.left}>{skill}</li>
+                                )
+                            }
+                        </ul>
+                        </div>
+                        :
+                        null
+                    }
+                    
                     </Grid>
                 </Grid>
                 </CardContent>

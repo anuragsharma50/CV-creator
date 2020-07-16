@@ -41,35 +41,35 @@ function Home() {
             </Paper>
             </Link>
 
-            <Link to='/education' >
+            <Link to='/education' id='education'>
                 <Paper className={classes.card}>
                     <MenuBookIcon style={{fontSize:150}}/>
                     <h2>Education</h2>
                 </Paper>
             </Link>
 
-            <Link to='/experience' >
+            <Link to='/experience' id='experience'>
                 <Paper className={classes.card}>
                     <BusinessCenterIcon style={{fontSize:150}}/>
                     <h2>Experience</h2>
                 </Paper>
             </Link>
 
-            <Link to='/skills' >
+            <Link to='/skills' id='skill'>
                 <Paper className={classes.card}>
                     <StarsIcon style={{fontSize:150}}/>
                     <h2>Skills</h2>
                 </Paper>
             </Link>
 
-            <Link to='/objective' >
+            <Link to='/objective' id='objective'>
                 <Paper className={classes.card}>
                     <AlarmOnIcon style={{fontSize:150}}/>
                     <h2>Objective</h2>
                 </Paper>
             </Link>
 
-            <Link to='/projects' >
+            <Link to='/projects' id='projects'>
                 <Paper className={classes.card}>
                     <WbIncandescentIcon style={{fontSize:150}}/>
                     <h2>Projects</h2>

@@ -12,33 +12,35 @@ import Help from './Components/Help';
 
 import Home from './Components/Home';
 import Show from './Components/Show';
+import createHistory from 'history/createBrowserHistory'; 
 
-import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
+import {Router, Route,Switch} from 'react-router-dom';
+
+const history = createHistory();
 
 function App() {
 
-  const [personal, setPersonal] = React.useState({})
+  const [data, setData] = React.useState({})
 
   const returnValues = values => {
-    setPersonal(values)
-    console.log("Home",values)
+    setData({...data, ...data.values, ...values})
   }  
 
   return (
     <div className="App">     
-      <Router>
+      <Router history={history}>
         <Header/>
         <Switch>       
           <Route path='/' exact component={Home} />
           <Route path='/personal' component={() => <Personal returnVal = {returnValues} />} />
-          <Route path='/education' component={() => <Education />} />
-          <Route path='/experience' component={() => <Experience />} />
-          <Route path='/skills' component={() => <Skill />} />
-          <Route path='/objective' component={() => <Objective />} />
-          <Route path='/projects' component={() => <Projects />} />
+          <Route path='/education' component={() => <Education returnVal = {returnValues} />} />
+          <Route path='/experience' component={() => <Experience returnVal = {returnValues} />} />
+          <Route path='/skills' component={() => <Skill returnVal = {returnValues}/>} />
+          <Route path='/objective' component={() => <Objective returnVal = {returnValues} />} />
+          <Route path='/projects' component={() => <Projects returnVal = {returnValues} />} />
           <Route path='/more' component={() => <Add />} />
           <Route path='/help' component={() => <Help />} />
-          <Route path='/show' component={() => <Show parsonalInfo={personal} />} />
+          <Route path='/show' component={() => <Show data={data} />} />
         </Switch>
       </Router>
       

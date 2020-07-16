@@ -41,14 +41,14 @@ return (
     <Toolbar>
     <Grid container spacing={6}>
       <Grid item xs={12} sm={10}> 
-      <Link to='/'>      
-        <Typography  variant="h6" className={classes.title}>
+      <Link to='/' >      
+        <Typography  variant="h6" className={classes.title} id='home'>
             CV Creator
         </Typography>
         </Link>
       </Grid>
       <Grid item xs={12} sm={2}>
-      <Link to='/show' className={classes.show}> 
+      <Link to='/show' className={classes.show} id='show'> 
         <VisibilityIcon className={classes.showIcon} />
         <Typography className={classes.text}>Show CV</Typography>
       </Link>

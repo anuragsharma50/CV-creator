@@ -6,7 +6,7 @@ import {TextField} from 'formik-material-ui';
 import Grid from '@material-ui/core/Grid';
 import {Typography,Card,Button} from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
-import Tooltip from '@material-ui/core/Tooltip';
+import { useHistory } from "react-router-dom";
 
 const initialValues = {
     edu: [{
@@ -51,9 +51,11 @@ const useStyles = makeStyles((theme) => ({
 
 const Education = (props) =>  {
 
+    let history = useHistory();
+
     const onSubmit = (values) => {
-        // props.returnVal(values)
-        console.log(values)
+        props.returnVal(values)
+        history.push('/show')
     }
 
 
@@ -81,7 +83,6 @@ const Education = (props) =>  {
                                         const { form,push,remove } = fieldArrayProps
                                         const { values } = form
                                         const { edu } = values
-                                        //console.log('Form Errors',form.errors)
                                         return <div>
                                             {
                                                 edu.map((edu, index) => (
@@ -94,6 +95,7 @@ const Education = (props) =>  {
                                                         <Grid container spacing={8}>
                                                         <Grid item xs={12} sm={8}>
                                                         <Field
+                                                        id={`course${index}`}
                                                         name={`edu[${index}].course`} 
                                                         component={TextField}
                                                         label="Course/Degree" 
@@ -101,7 +103,8 @@ const Education = (props) =>  {
                                                         />
                                                         </Grid>
                                                         <Grid item xs={12} sm={4}>
-                                                        <Field                                                         
+                                                        <Field 
+                                                        id={`grade${index}`}                                                
                                                         name={`edu[${index}].grade`} 
                                                         component={TextField} 
                                                         label="Grade/Score"
@@ -114,6 +117,7 @@ const Education = (props) =>  {
                                                         <Grid container spacing={8}>
                                                         <Grid item xs={12} sm={8}>  
                                                         <Field 
+                                                        id={`school${index}`}
                                                         name={`edu[${index}].school`} 
                                                         component={TextField} 
                                                         label="School/University"
@@ -122,6 +126,7 @@ const Education = (props) =>  {
                                                         </Grid>
                                                         <Grid item xs={12} sm={4}>
                                                         <Field 
+                                                        id={`year${index}`}
                                                         name={`edu[${index}].year`} 
                                                         component={TextField} 
                                                         label="Year"
@@ -130,7 +135,6 @@ const Education = (props) =>  {
                                                         </Grid>
                                                         </div>
                                                         { index > 0 && (
-                                                        <Tooltip title="Delete" aria-label="delete">
                                                         <Button 
                                                         className={classes.subButton}
                                                         type='button' 
@@ -140,7 +144,6 @@ const Education = (props) =>  {
                                                         fullWidth
                                                         > <DeleteIcon />
                                                         </Button>
-                                                        </Tooltip>
                                                         )}
                                                         </Card>
                                                     </div>
@@ -149,7 +152,6 @@ const Education = (props) =>  {
                                             }
                                             <Grid container spacing={8}>
                                             <Grid item xs={12} sm={6}>
-                                            <Tooltip title="Add Education" aria-label="add">
                                             <Button 
                                                 className={classes.addButton}
                                                 variant="contained" 
@@ -158,7 +160,6 @@ const Education = (props) =>  {
                                                 onClick={() => push({course:'',school:'',grade:'',year:''})}>
                                                  + 
                                             </Button>
-                                            </Tooltip>
                                             </Grid>
                                             <Grid item xs={12} sm={6}>
                                             <Button 

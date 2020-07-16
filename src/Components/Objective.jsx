@@ -4,6 +4,7 @@ import CardContent from '@material-ui/core/CardContent';
 import { Formik,Form,Field } from 'formik';
 import {TextField} from 'formik-material-ui';
 import {Typography,Card,Button} from '@material-ui/core';
+import { useHistory } from "react-router-dom";
 
 const initialValues = {
     objective: ''
@@ -32,9 +33,11 @@ const useStyles = makeStyles((theme) => ({
 
 const Objective = (props) =>  {
 
+    let history = useHistory();
+
     const onSubmit = (values) => {
-        // props.returnVal(values)
-        console.log(values)
+        props.returnVal(values)
+        history.push('/show')
     }
 
   const classes = useStyles();
@@ -56,6 +59,7 @@ const Objective = (props) =>  {
                             <Form>         
                                 <div className={classes.inp}>
                                     <Field
+                                    id='obj'
                                     name='objective' 
                                     component={TextField}
                                     multiline

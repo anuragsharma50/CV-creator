@@ -6,7 +6,7 @@ import {TextField} from 'formik-material-ui';
 import Grid from '@material-ui/core/Grid';
 import {Typography,Card,Button} from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
-import Tooltip from '@material-ui/core/Tooltip';
+import { useHistory } from "react-router-dom";
 
 const initialValues = {
     projects: [{
@@ -49,9 +49,11 @@ const useStyles = makeStyles((theme) => ({
 
 const Projects = (props) =>  {
 
+    let history = useHistory();
+
     const onSubmit = (values) => {
-        // props.returnVal(values)
-        console.log(values)
+        props.returnVal(values)
+        history.push('/show')
     }
 
 
@@ -79,7 +81,6 @@ const Projects = (props) =>  {
                                         const { form,push,remove } = fieldArrayProps
                                         const { values } = form
                                         const { projects } = values
-                                        //console.log('Form Errors',form.errors)
                                         return <div>
                                             {
                                                 projects.map((projects, index) => (
@@ -90,6 +91,7 @@ const Projects = (props) =>  {
                                                         </Typography>
                                                         <div className={classes.inp}>
                                                         <Field
+                                                        id={`title${index}`}
                                                         name={`projects[${index}].title`} 
                                                         component={TextField}
                                                         label="Title" 
@@ -98,6 +100,7 @@ const Projects = (props) =>  {
                                                         </div>
                                                         <div className={classes.inp}>
                                                         <Field
+                                                        id={`desc${index}`}
                                                         name={`projects[${index}].desc`} 
                                                         component={TextField}
                                                         label="Description"
@@ -108,7 +111,6 @@ const Projects = (props) =>  {
                                                         />
                                                         </div>
                                                         { index > 0 && (
-                                                        <Tooltip title="Delete" aria-label="delete">
                                                         <Button 
                                                         className={classes.subButton}
                                                         type='button' 
@@ -118,7 +120,6 @@ const Projects = (props) =>  {
                                                         fullWidth
                                                         > <DeleteIcon />
                                                         </Button>
-                                                        </Tooltip>
                                                         )}
                                                         </Card>
                                                     </div>
@@ -127,7 +128,6 @@ const Projects = (props) =>  {
                                             }
                                             <Grid container spacing={8}>
                                             <Grid item xs={12} sm={6}>
-                                            <Tooltip title="Add Projects" aria-label="add">
                                             <Button 
                                                 className={classes.addButton}
                                                 variant="contained" 
@@ -136,7 +136,6 @@ const Projects = (props) =>  {
                                                 onClick={() => push({course:'',school:'',grade:'',year:''})}>
                                                  + 
                                             </Button>
-                                            </Tooltip>
                                             </Grid>
                                             <Grid item xs={12} sm={6}>
                                             <Button 

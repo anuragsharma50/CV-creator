@@ -5,7 +5,8 @@ import { Formik,Form,Field } from 'formik';
 import * as Yup from 'yup';
 import {TextField} from 'formik-material-ui';
 import Grid from '@material-ui/core/Grid';
-import {Typography,Card,Button} from '@material-ui/core'
+import {Typography,Card,Button} from '@material-ui/core';
+import { useHistory } from "react-router-dom";
 
 const initialValues = {
     name:'',
@@ -48,8 +49,11 @@ const useStyles = makeStyles((theme) => ({
 
 const Personal = (props) =>  {
 
+    let history = useHistory();
+
     const onSubmit = (values) => {
         props.returnVal(values)
+        history.push('/show')
     }
 
   const classes = useStyles();
@@ -99,7 +103,7 @@ const Personal = (props) =>  {
                                 component={TextField}
                                     label="Address"
                                     name='address'
-                                    id='name'
+                                    id='address'
                                     fullWidth
                                 />
                                 </div>
@@ -128,6 +132,7 @@ const Personal = (props) =>  {
                                     </Grid>
                                 </div>
                                 <Button 
+                                id="submit"
                                 className={classes.button} 
                                 variant="contained" 
                                 color="primary" 

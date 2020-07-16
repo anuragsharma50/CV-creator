@@ -6,7 +6,7 @@ import {TextField} from 'formik-material-ui';
 import Grid from '@material-ui/core/Grid';
 import {Typography,Card,Button} from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
-import Tooltip from '@material-ui/core/Tooltip';
+import { useHistory } from "react-router-dom";
 
 const initialValues = {
     experience: [{
@@ -52,9 +52,11 @@ const useStyles = makeStyles((theme) => ({
 
 const Experience = (props) =>  {
 
+    let history = useHistory();
+
     const onSubmit = (values) => {
-        // props.returnVal(values)
-        console.log(values)
+        props.returnVal(values)
+        history.push('/show')
     }
 
 
@@ -93,6 +95,7 @@ const Experience = (props) =>  {
                                                         </Typography>
                                                         <div className={classes.inp}>
                                                         <Field
+                                                        id={`name${index}`}
                                                         name={`experience[${index}].company`} 
                                                         component={TextField}
                                                         label="Company Name" 
@@ -100,7 +103,8 @@ const Experience = (props) =>  {
                                                         />
                                                         </div>
                                                         <div className={classes.inp}>
-                                                        <Field                                                         
+                                                        <Field 
+                                                        id={`title${index}`}                                                        
                                                         name={`experience[${index}].title`} 
                                                         component={TextField} 
                                                         label="Job Title"
@@ -111,6 +115,7 @@ const Experience = (props) =>  {
                                                         <Grid container spacing={10}>
                                                         <Grid item xs={12} sm={6}>  
                                                         <Field 
+                                                        id={`from${index}`}
                                                         name={`experience[${index}].from`} 
                                                         component={TextField} 
                                                         label="Start Date"
@@ -119,6 +124,7 @@ const Experience = (props) =>  {
                                                         </Grid>
                                                         <Grid item xs={12} sm={6}>
                                                         <Field 
+                                                        id={`to${index}`}
                                                         name={`experience[${index}].to`} 
                                                         component={TextField} 
                                                         label="End Date"
@@ -128,6 +134,7 @@ const Experience = (props) =>  {
                                                         </Grid>
                                                         <div className={classes.inp}>
                                                         <Field 
+                                                        id={`details${index}`}
                                                         name={`experience[${index}].details`} 
                                                         component={TextField} 
                                                         label="Details"
@@ -136,7 +143,6 @@ const Experience = (props) =>  {
                                                         </div>
                                                         </div>
                                                         { index > 0 && (
-                                                        <Tooltip title="Delete" aria-label="delete">
                                                         <Button 
                                                         className={classes.subButton}
                                                         type='button' 
@@ -146,7 +152,6 @@ const Experience = (props) =>  {
                                                         fullWidth
                                                         > <DeleteIcon />
                                                         </Button>
-                                                        </Tooltip>
                                                         )}
                                                         </Card>
                                                     </div>
@@ -155,7 +160,6 @@ const Experience = (props) =>  {
                                             }
                                             <Grid container spacing={8}>
                                             <Grid item xs={12} sm={6}>
-                                            <Tooltip title="Add Experience" aria-label="add">
                                             <Button 
                                                 className={classes.addButton}
                                                 variant="contained" 
@@ -168,7 +172,6 @@ const Experience = (props) =>  {
                                                 details:''})}>
                                                  + 
                                             </Button>
-                                            </Tooltip>
                                             </Grid>
                                             <Grid item xs={12} sm={6}>
                                             <Button 

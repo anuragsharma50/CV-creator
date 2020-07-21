@@ -154,6 +154,7 @@ const Education = (props) =>  {
                                             <Grid item xs={12} sm={6}>
                                             <Button 
                                                 className={classes.addButton}
+                                                id='add'
                                                 variant="contained" 
                                                 color="primary"
                                                 type='button' 

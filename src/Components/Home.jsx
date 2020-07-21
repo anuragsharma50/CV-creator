@@ -79,7 +79,7 @@ function Home() {
             <Link to='/more' >
                 <Paper className={classes.card}>
                     <AddCircleIcon style={{fontSize:150}}/>
-                    <h2>Add More Section</h2>
+                    <h2>More</h2>
                 </Paper>
             </Link>
 

@@ -13,7 +13,12 @@ const initialValues = {
     address:'',
     email:'',
     phone:'',
-    linkedIn:''
+    linkedIn:'',
+    // gitHub:'',
+    // fb:'',
+    // dob:'',
+    // website:'',
+    // tw:'',
 }
 
 const validationSchema = Yup.object({

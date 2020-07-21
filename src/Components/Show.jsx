@@ -10,12 +10,15 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import HomeIcon from '@material-ui/icons/Home';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import { useHistory } from "react-router-dom";
+import html2canvas from "html2canvas";
+import * as jsPDF from 'jspdf';
 
 const useStyles = makeStyles((theme) => ({
     name: {
         color: 'white',
         backgroundColor: 'black',
-        padding: theme.spacing(3),
+        padding: theme.spacing(6),
         fontSize: theme.spacing(2),
     },
     text :{
@@ -27,10 +30,12 @@ const useStyles = makeStyles((theme) => ({
         background: 'white',
     },
     cv :{
+        margin:'auto',
         marginTop: theme.spacing(1), 
-        marginRight: theme.spacing(40),
         marginBottom: theme.spacing(1),
-        marginLeft: theme.spacing(40),
+        width: 794,
+        height: 1123,
+        backgroundColor: 'white',
     },
     subHeading: {
         color: 'white',
@@ -38,10 +43,12 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(1),
         fontSize: theme.spacing(2.2),
         margin : theme.spacing(0.8),
-        marginRight : theme.spacing(10),
+        marginRight : theme.spacing(5),
+        marginTop : theme.spacing(2),
     },
     left: {
         marginLeft : theme.spacing(2),
+        marginBottom : theme.spacing(0.8),
         textAlign: 'left',
         fontWeight: 'inherit',
     },
@@ -55,15 +62,47 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'left',
         fontWeight: 'inherit',
         marginBottom: theme.spacing(0.5),
-        marginTop: theme.spacing(0.5)
+        marginTop: theme.spacing(0.5),
+        fontSize: theme.spacing(2)
     },
     icon : {
-        //margin: theme.spacing(0),
         marginTop: theme.spacing(0.7)
+    },
+    downloadButton: {
+        margin: 30,
+        backgroundColor: 'Green',
+        float: 'right'
+    },
+    moreButton: {
+        margin: 30,
+        float: 'left'
+    },
+    buttons: {
+        width: 794,
+        margin:'auto'
     }
   }));
 
 function Show(props) {
+
+    let history = useHistory();
+
+    const handleMore = () => {
+      history.push('/')
+    }
+  
+    const handleDownload = () => {
+        const domElement = document.getElementById("all");
+        html2canvas(domElement,{scrollY: -window.scrollY})
+        .then(canvas => {
+        const imgData = canvas.toDataURL("image/png");
+
+        var pdf = new jsPDF();
+        pdf.addImage(imgData, "JPEG",-1.2,0);
+        pdf.save(`${new Date().toISOString()}.pdf`);
+        });
+    }
+
     const classes = useStyles();
 
     if(props.data.name === undefined){
@@ -81,7 +120,7 @@ function Show(props) {
         const {name,email,phone,address,linkedIn} = props.data
         return (
             <div>
-                <Card className={classes.cv}>
+                <Card className={classes.cv} id="all">
                 <CardContent>
                 <Typography className={classes.name}>{name.toUpperCase()}</Typography>
                 <Grid container spacing={8}>
@@ -166,11 +205,11 @@ function Show(props) {
                     <div className={classes.icon}>
                     <Typography> <AlternateEmailIcon style={{ fontSize: 18 }} /> </Typography>
                     <Typography> <PhoneIcon style={{ fontSize: 18 }} /> </Typography>
-                    <Typography> <HomeIcon style={{ fontSize: 18 }} /> </Typography>
+                    <Typography> <HomeIcon style={{ fontSize: 18, marginBottom: 45 }} /> </Typography>
                     {
                         linkedIn 
                         !== '' ? 
-                        <Typography style={{ marginTop: 45 }}>
+                        <Typography>
                         <LinkedInIcon style={{ fontSize: 18 }} />
                         </Typography>
                         : null
@@ -212,6 +251,29 @@ function Show(props) {
                 </Grid>
                 </CardContent>
                 </Card>
+
+                <Grid container spacing={0} className={classes.buttons} >
+                    <Grid item xs={12} sm={6} >
+                        <Button 
+                        variant="contained"  
+                        color="primary"
+                        className={classes.moreButton}
+                        onClick={handleMore}
+                        >Add More</Button>
+                    </Grid>
+
+                    <Grid item xs={12} sm={6}>
+                        <Button 
+                        variant="contained"
+                        className={classes.downloadButton}
+                        onClick={handleDownload}
+                        >Download</Button>
+                    </Grid>
+                </Grid>
+
+                <Typography>
+                    .
+                </Typography>
             </div>
         )
     }

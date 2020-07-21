@@ -21,6 +21,8 @@ const useStyles = makeStyles((theme) => ({
       width: theme.spacing(27),
       height: theme.spacing(30),
       textDecoration: 'none',
+      marginTop: theme.spacing(3.5),
+      marginBottom: theme.spacing(3.4)
     },
   },
   card: {

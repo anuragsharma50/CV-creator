@@ -6,11 +6,11 @@ Create a CV using info like personal details,education,skills etc. than download
 
 ![Screenshot](https://github.com/anuragsharma50/CV-creator/blob/master/static/home.png)
 ![Screenshot](https://github.com/anuragsharma50/CV-creator/blob/master/static/blank.png)
-![Screenshot](https://github.com/anuragsharma50/CV-creator/tree/master/static/personal.png)
+![Screenshot](https://github.com/anuragsharma50/CV-creator/blob/master/static/personal.png)
 ![Screenshot](https://github.com/anuragsharma50/CV-creator/blob/master/static/experience.png)
-![Screenshot](https://github.com/anuragsharma50/CV-creator/tree/master/static/skill.png)
-![Screenshot](https://github.com/anuragsharma50/CV-creator/tree/master/static/cv.png)
-![Screenshot](https://github.com/anuragsharma50/CV-creator/tree/master/static/pdf.png)
+![Screenshot](https://github.com/anuragsharma50/CV-creator/blob/master/static/skill.png)
+![Screenshot](https://github.com/anuragsharma50/CV-creator/blob/master/static/cv.png)
+![Screenshot](https://github.com/anuragsharma50/CV-creator/blob/master/static/pdf.png)
 
 # How to run
 

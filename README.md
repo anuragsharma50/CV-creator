@@ -5,12 +5,12 @@ Create a CV using info like personal details,education,skills etc. than download
 # Preview
 
 ![Screenshot](https://github.com/anuragsharma50/CV-creator/blob/master/static/home.png)
-![Screenshot](https://github.com/anuragsharma50/Word-Game/blob/master/static/blank.png)
-![Screenshot](https://github.com/anuragsharma50/Word-Game/blob/master/static/personal.png)
+![Screenshot](https://github.com/anuragsharma50/Word-Game/tree/master/static/blank.png)
+![Screenshot](https://github.com/anuragsharma50/Word-Game/tree/master/static/personal.png)
 ![Screenshot](https://github.com/anuragsharma50/CV-creator/blob/master/static/experience.png)
-![Screenshot](https://github.com/anuragsharma50/Word-Game/blob/master/static/skill.png)
-![Screenshot](https://github.com/anuragsharma50/Word-Game/blob/master/static/cv.png)
-![Screenshot](https://github.com/anuragsharma50/Word-Game/blob/master/static/pdf.png)
+![Screenshot](https://github.com/anuragsharma50/Word-Game/tree/master/static/skill.png)
+![Screenshot](https://github.com/anuragsharma50/Word-Game/tree/master/static/cv.png)
+![Screenshot](https://github.com/anuragsharma50/Word-Game/tree/master/static/pdf.png)
 
 # How to run
 

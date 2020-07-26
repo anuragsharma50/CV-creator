@@ -1,6 +1,5 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import {Link} from 'react-router-dom';
@@ -13,82 +12,15 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import { useHistory } from "react-router-dom";
 import html2canvas from "html2canvas";
 import * as jsPDF from 'jspdf';
+import { useStyles } from './showStyles';
 
-const useStyles = makeStyles((theme) => ({
-    name: {
-        color: 'white',
-        backgroundColor: 'black',
-        padding: theme.spacing(6),
-        fontSize: theme.spacing(2),
-    },
-    text :{
-        padding: theme.spacing(3),
-        fontSize: theme.spacing(2),
-        background: 'white',
-    },
-    noInput: {
-        background: 'white',
-    },
-    cv :{
-        margin:'auto',
-        marginTop: theme.spacing(1), 
-        marginBottom: theme.spacing(1),
-        width: 794,
-        height: 1123,
-        backgroundColor: 'white',
-    },
-    subHeading: {
-        color: 'white',
-        backgroundColor: 'black',
-        padding: theme.spacing(1),
-        fontSize: theme.spacing(2.2),
-        margin : theme.spacing(0.8),
-        marginRight : theme.spacing(5),
-        marginTop : theme.spacing(2),
-    },
-    left: {
-        marginLeft : theme.spacing(2),
-        marginBottom : theme.spacing(0.8),
-        textAlign: 'left',
-        fontWeight: 'inherit',
-    },
-    edu: {
-        fontWeight: 'bold',
-        marginLeft : theme.spacing(1),
-        textAlign: 'left',
-    },
-    subEdu : {
-        marginLeft : theme.spacing(1),
-        textAlign: 'left',
-        fontWeight: 'inherit',
-        marginBottom: theme.spacing(0.5),
-        marginTop: theme.spacing(0.5),
-        fontSize: theme.spacing(2)
-    },
-    icon : {
-        marginTop: theme.spacing(0.7)
-    },
-    downloadButton: {
-        margin: 30,
-        backgroundColor: 'Green',
-        float: 'right'
-    },
-    moreButton: {
-        margin: 30,
-        float: 'left'
-    },
-    buttons: {
-        width: 794,
-        margin:'auto'
-    }
-  }));
 
 function Show(props) {
 
     let history = useHistory();
 
     const handleMore = () => {
-      history.push('/')
+      history.push('/');
     }
   
     const handleDownload = () => {
@@ -203,14 +135,14 @@ function Show(props) {
                     <Grid item xs={12} sm={2}>
                         
                     <div className={classes.icon}>
-                    <Typography> <AlternateEmailIcon style={{ fontSize: 18 }} /> </Typography>
-                    <Typography> <PhoneIcon style={{ fontSize: 18 }} /> </Typography>
-                    <Typography> <HomeIcon style={{ fontSize: 18, marginBottom: 45 }} /> </Typography>
+                    <Typography> <AlternateEmailIcon style={{ fontSize: 19 }} /> </Typography>
+                    <Typography> <PhoneIcon style={{ fontSize: 19 }} /> </Typography>
+                    <Typography> <HomeIcon style={{ fontSize: 19, marginBottom: 42 }} /> </Typography>
                     {
                         linkedIn 
                         !== '' ? 
                         <Typography>
-                        <LinkedInIcon style={{ fontSize: 18 }} />
+                        <LinkedInIcon style={{ fontSize: 19 }} />
                         </Typography>
                         : null
                     }

@@ -23,15 +23,26 @@ const useStyles = makeStyles((theme) => ({
         minWidth: 275,
         margin: '50px 300px',
         backgroundColor: '#CAD0CD',
+        [theme.breakpoints.only('xs')]: {
+            margin: theme.spacing(0),
+            borderRadius: theme.spacing(0),
+        },
         },
     experience: {
         margin: '10px 30px',
+        [theme.breakpoints.only('xs')]: {
+            margin: theme.spacing(0),
+            marginBottom: theme.spacing(2),
+        },
     },
     inp: {
         margin: 'auto',
         marginTop: 20,
         marginBottom: theme.spacing(5),
         width: theme.spacing(65),
+        [theme.breakpoints.only('xs')]: {
+            width: theme.spacing(30),
+        },
     },
     heading: {
         marginTop: 20,
@@ -39,14 +50,27 @@ const useStyles = makeStyles((theme) => ({
     submitButton: {
         margin: 30,
         marginLeft: 190,
+        [theme.breakpoints.only('xs')]: {
+            margin: 10,
+            marginLeft: 19,
+        },
     },
     addButton: {
         margin: 30,
         marginRight: 210,
+        [theme.breakpoints.only('xs')]: {
+            margin: 10,
+            marginRight: 21,
+        },
     },
     subButton: {
         width: theme.spacing(8),
         marginBottom: theme.spacing(4),
+    },
+    extra: {
+        [theme.breakpoints.only('xs')]: {
+            margin: theme.spacing(-3),
+        },
     }
 }));
 
@@ -84,7 +108,6 @@ const Experience = (props) =>  {
                                         const { form,push,remove } = fieldArrayProps
                                         const { values } = form
                                         const { experience } = values
-                                        //console.log('Form Errors',form.errors)
                                         return <div>
                                             {
                                                 experience.map((experience, index) => (
@@ -159,7 +182,7 @@ const Experience = (props) =>  {
                                                 ))
                                             }
                                             <Grid container spacing={8}>
-                                            <Grid item xs={12} sm={6}>
+                                            <Grid item xs={6} sm={6}>
                                             <Button 
                                                 className={classes.addButton}
                                                 variant="contained" 
@@ -173,7 +196,7 @@ const Experience = (props) =>  {
                                                  + 
                                             </Button>
                                             </Grid>
-                                            <Grid item xs={12} sm={6}>
+                                            <Grid item xs={6} sm={6}>
                                             <Button 
                                             className={classes.submitButton} 
                                             variant="contained" 
@@ -194,7 +217,7 @@ const Experience = (props) =>  {
             </Formik>
         </CardContent>
     </Card>
-    <Typography>
+    <Typography className={classes.extra}>
             .
     </Typography>
     </>

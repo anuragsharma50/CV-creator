@@ -20,30 +20,60 @@ const useStyles = makeStyles((theme) => ({
         minWidth: 275,
         margin: '50px 300px',
         backgroundColor: '#CAD0CD',
+        [theme.breakpoints.only('xs')]: {
+            margin: theme.spacing(0),
+            borderRadius: theme.spacing(0),
+            
+        },
         },
     projects: {
         margin: '10px 30px',
+        [theme.breakpoints.only('xs')]: {
+            margin: theme.spacing(-1),
+            borderRadius: theme.spacing(0),
+            marginBottom: theme.spacing(2),
+        },
     },
     inp: {
         margin: 'auto',
         marginTop: 10,
         marginBottom: 35,
         width: theme.spacing(74),
+        [theme.breakpoints.only('xs')]: {
+            width: theme.spacing(30),
+            marginBottom: 30,
+        },
     },
     heading: {
         marginTop: 20,
+        
     },
     submitButton: {
         margin: 30,
         marginLeft: 190,
+        [theme.breakpoints.only('xs')]: {
+            margin: 10,
+            marginLeft: 19,
+            marginBottom: 60,
+        },
     },
     addButton: {
         margin: 30,
         marginRight: 210,
+        [theme.breakpoints.only('xs')]: {
+            margin: 10,
+            marginRight: 21,
+        },
     },
     subButton: {
         width: theme.spacing(8),
         marginBottom: theme.spacing(4),
+    },
+    extra: {
+        [theme.breakpoints.only('xs')]: {
+            margin: theme.spacing(-3),
+            visibility: 'hidden',
+        },
     }
 }));
 
@@ -127,7 +157,7 @@ const Projects = (props) =>  {
                                                 ))
                                             }
                                             <Grid container spacing={8}>
-                                            <Grid item xs={12} sm={6}>
+                                            <Grid item xs={6} sm={6}>
                                             <Button 
                                                 className={classes.addButton}
                                                 variant="contained" 
@@ -137,7 +167,7 @@ const Projects = (props) =>  {
                                                  + 
                                             </Button>
                                             </Grid>
-                                            <Grid item xs={12} sm={6}>
+                                            <Grid item xs={6} sm={6}>
                                             <Button 
                                             className={classes.submitButton} 
                                             variant="contained" 
@@ -158,7 +188,7 @@ const Projects = (props) =>  {
             </Formik>
         </CardContent>
     </Card>
-    <Typography>
+    <Typography className={classes.extra}>
             .
     </Typography>
     </>

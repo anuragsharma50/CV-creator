@@ -14,13 +14,20 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     margin: theme.spacing(-2),
     color: 'white',
+    [theme.breakpoints.only('xs')]: {
+      margin: theme.spacing(0.9),
+      marginLeft: theme.spacing(-0.1),
+    },
   },
   show: {
     position: 'absolute',
     margin: theme.spacing(-2.1),
-    //marginLeft: theme.spacing(25),
     color: 'white',
     textDecoration: 'none',
+    [theme.breakpoints.only('xs')]: {
+      marginTop: theme.spacing(-5),
+      marginLeft: theme.spacing(8),
+    },
   },
   showIcon: {
     fontSize: theme.spacing(5),   
@@ -29,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     marginTop: theme.spacing(-6),
     marginLeft: theme.spacing(5)
-  }
+  },
 }));
 
 function Header() {
@@ -47,7 +54,7 @@ return (
         </Typography>
         </Link>
       </Grid>
-      <Grid item xs={12} sm={2}>
+      <Grid item xs={12} sm={2} >
       <Link to='/show' className={classes.show} id='show'> 
         <VisibilityIcon className={classes.showIcon} />
         <Typography className={classes.text}>Show CV</Typography>

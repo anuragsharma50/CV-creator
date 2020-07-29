@@ -25,7 +25,7 @@ function Add() {
         <div>
             <Card className={classes.root}>
                 <Typography variant="h4" gutterBottom className={classes.heading}>
-                    To Maintain four column in each row we just added this box,You can go back by clicking on CV creator on the Header
+                    Content will be added later.
                 </Typography>
             </Card>
             <Typography>

@@ -40,7 +40,7 @@ function Show(props) {
     if(props.data.name === undefined){
         return (
             <div className={classes.noInput}>
-            <Typography className={classes.text}>Please fill Personal Details form to view CV.</Typography>
+            <Typography className={classes.noText}>Please fill Personal Details form to view CV.</Typography>
             <Link to='/personal'>
             <Button variant="contained" color="primary" >Fill Personal Details Form</Button>
             </Link>
@@ -56,7 +56,7 @@ function Show(props) {
                 <CardContent>
                 <Typography className={classes.name}>{name.toUpperCase()}</Typography>
                 <Grid container spacing={8}>
-                    <Grid item xs={12} sm={7}>       
+                    <Grid item xs={6} sm={4}>       
                         {
                             props.data.objective !== undefined ?
                             <div>
@@ -129,7 +129,7 @@ function Show(props) {
                     }
 
                     </Grid>
-                    <Grid item xs={12} sm={5}>
+                    <Grid item xs={6} sm={2}>
                     <Typography className={classes.subHeading}>CONTACT</Typography>
                     <Grid container spacing={0}>
                     <Grid item xs={12} sm={2}>

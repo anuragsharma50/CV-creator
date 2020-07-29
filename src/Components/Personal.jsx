@@ -36,11 +36,19 @@ const useStyles = makeStyles((theme) => ({
         marginRight: theme.spacing(38),
         marginBottom: theme.spacing(10.4),
         marginLeft: theme.spacing(38),
+        [theme.breakpoints.only('xs')]: {
+            margin: theme.spacing(0),
+            borderRadius: theme.spacing(0)
+          },
         },
     inp: {
         margin: 'auto',
         marginTop: 20,
         width: theme.spacing(74),
+        [theme.breakpoints.only('xs')]: {
+            width: theme.spacing(30),
+            marginTop: 10,
+        },
     },
     heading: {
         marginTop: 20,
@@ -49,7 +57,21 @@ const useStyles = makeStyles((theme) => ({
         margin: 36,
         marginLeft: theme.spacing(70),
         marginRight: theme.spacing(7),
+        [theme.breakpoints.only('xs')]: {
+            marginLeft: theme.spacing(10),
+        },
     },
+    grids: {
+        [theme.breakpoints.only('xs')]: {
+            marginTop: theme.spacing(2.7),
+            marginBottom: theme.spacing(2.7),
+        },
+    },
+    extra: {
+        [theme.breakpoints.only('xs')]: {
+            margin: theme.spacing(-3),
+        },
+    }
 }));
 
 const Personal = (props) =>  {
@@ -80,7 +102,7 @@ const Personal = (props) =>  {
                         return(
                             <Form>
                                 <div className={classes.inp}>
-                                    <Grid container spacing={8}>
+                                    <Grid container spacing={6}>
                                         <Grid item xs={12} sm={6}>
                                             <Field 
                                             component={TextField}
@@ -105,6 +127,7 @@ const Personal = (props) =>  {
                                 </div>
                                 <div className={classes.inp}>
                                 <Field
+                                className={classes.grids}
                                 component={TextField}
                                     label="Address"
                                     name='address'
@@ -113,7 +136,7 @@ const Personal = (props) =>  {
                                 />
                                 </div>
                                 <div className={classes.inp}>
-                                    <Grid container spacing={8}>
+                                    <Grid container spacing={6}>
                                         <Grid item xs={12} sm={6}>
                                             <Field 
                                             component={TextField}
@@ -150,7 +173,7 @@ const Personal = (props) =>  {
             </Formik>
         </CardContent>
     </Card>
-    <Typography>
+    <Typography className={classes.extra}>
             .
     </Typography>
     </>

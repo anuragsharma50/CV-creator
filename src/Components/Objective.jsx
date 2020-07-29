@@ -14,12 +14,21 @@ const useStyles = makeStyles((theme) => ({
     root: {
         minWidth: 275,
         margin: '96px 300px',
+        [theme.breakpoints.only('xs')]: {
+            margin: theme.spacing(0),
+            borderRadius: theme.spacing(0),
+        },
         },
     inp: {
         margin: 'auto',
         marginTop: 20,
         marginBottom: theme.spacing(5),
         width: theme.spacing(75),
+        [theme.breakpoints.only('xs')]: {
+            width: theme.spacing(35),
+            marginBottom: 30,
+            height: theme.spacing(45),
+        },
     },
     heading: {
         marginTop: 20,
@@ -28,7 +37,16 @@ const useStyles = makeStyles((theme) => ({
         margin: 30,
         marginLeft: 530,
         backgroundColor: 'Green',
+        [theme.breakpoints.only('xs')]: {
+            marginTop: theme.spacing(3),
+            margin: 'auto'
+        },
     },
+    extra: {
+        [theme.breakpoints.only('xs')]: {
+            margin: theme.spacing(-3),
+        },
+    }
 }));
 
 const Objective = (props) =>  {
@@ -81,7 +99,7 @@ const Objective = (props) =>  {
             </Formik>
         </CardContent>
     </Card>
-    <Typography>
+    <Typography className={classes.extra}>
             .
     </Typography>
     </>

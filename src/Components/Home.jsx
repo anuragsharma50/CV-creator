@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
         margin: 'auto',
         width: theme.spacing(38),
         height: theme.spacing(10.68),
+        overflowY: 'hidden', 
     },
     },
   },

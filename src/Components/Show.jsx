@@ -14,7 +14,6 @@ import html2canvas from "html2canvas";
 import * as jsPDF from 'jspdf';
 import { useStyles } from './showStyles';
 
-
 function Show(props) {
 
     let history = useHistory();
@@ -185,7 +184,7 @@ function Show(props) {
                 </Card>
 
                 <Grid container spacing={0} className={classes.buttons} >
-                    <Grid item xs={12} sm={6} >
+                    <Grid item xs={6} sm={6} >
                         <Button 
                         variant="contained"  
                         color="primary"
@@ -194,7 +193,7 @@ function Show(props) {
                         >Add More</Button>
                     </Grid>
 
-                    <Grid item xs={12} sm={6}>
+                    <Grid item xs={6} sm={6}>
                         <Button 
                         variant="contained"
                         className={classes.downloadButton}

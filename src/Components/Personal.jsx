@@ -38,7 +38,8 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: theme.spacing(38),
         [theme.breakpoints.only('xs')]: {
             margin: theme.spacing(0),
-            borderRadius: theme.spacing(0)
+            borderRadius: theme.spacing(0),
+            width: '110%',
           },
         },
     inp: {

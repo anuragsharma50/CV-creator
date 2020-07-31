@@ -39,7 +39,6 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.only('xs')]: {
             margin: theme.spacing(0),
             borderRadius: theme.spacing(0),
-            width: '110%',
           },
         },
     inp: {
@@ -53,6 +52,9 @@ const useStyles = makeStyles((theme) => ({
     },
     heading: {
         marginTop: 20,
+        [theme.breakpoints.only('xs')]: {
+            fontSize: theme.spacing(4.2),
+        },
     },
     button: {
         margin: 36,

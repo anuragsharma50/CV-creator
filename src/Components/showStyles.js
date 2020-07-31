@@ -88,37 +88,59 @@ export const useStyles = makeStyles((theme) => ({
             fontSize: theme.spacing(0.66),
         },
     },
-    icon : {
+    icons : {
         marginTop: theme.spacing(0.9),
         [theme.breakpoints.only('xs')]: {
-            marginTop: theme.spacing(0.3),
+            marginTop: theme.spacing(-1),
+        },
+    },
+    icon: {
+        fontSize: 19,
+        [theme.breakpoints.only('xs')]: {
+            fontSize: 8,
         },
     },
     downloadButton: {
         margin: 30,
         backgroundColor: 'Green',
-        float: 'right',
+        marginLeft: 190,
         [theme.breakpoints.only('xs')]: {
             margin: 10,
             marginLeft: 19,
+            fontSize: theme.spacing(1),
         },
     },
     moreButton: {
         margin: 30,
-        float: 'left',
+        marginRight: 210,
         [theme.breakpoints.only('xs')]: {
             margin: 10,
             marginRight: 21,
+            fontSize: theme.spacing(1),
         },
     },
     buttons: {
         width: 794,
-        margin:'auto'
+        margin:'auto',
+        [theme.breakpoints.only('xs')]: {
+            width: 300
+        },
     },
     noText: {
         margin: 'auto',
         paddingTop: theme.spacing(1),
         paddingBottom: theme.spacing(1),
         fontSize: theme.spacing(2),
+    },
+    skill: {
+        marginLeft: -10,
+        marginBottom : theme.spacing(0.8),
+        textAlign: 'left',
+        fontWeight: 'inherit',
+        [theme.breakpoints.only('xs')]: {
+            marginLeft : theme.spacing(-3),
+            marginBottom : theme.spacing(0.266),
+            fontSize: theme.spacing(1),
+        },
     }
   }));

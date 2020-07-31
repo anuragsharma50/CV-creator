@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme) => ({
         marginTop: 20,
         
     },
+    extra: {
+        marginBottom: 42,
+    }
 }))
 
 function Add() {
@@ -28,7 +31,7 @@ function Add() {
                     Content will be added later.
                 </Typography>
             </Card>
-            <Typography>
+            <Typography className={classes.extra}>
                     .
             </Typography>
         </div>

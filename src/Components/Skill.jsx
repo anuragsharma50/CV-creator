@@ -45,7 +45,6 @@ const useStyles = makeStyles((theme) => ({
     submitButton: {
         margin: 30,
         marginLeft: 190,
-        backgroundColor: 'Green',
         [theme.breakpoints.only('xs')]: {
             margin: 10,
             marginLeft: 19,
@@ -156,7 +155,7 @@ const Skill = (props) =>  {
                                             variant="contained" 
                                             color="primary" 
                                             type='submit'
-                                            >Save</Button>
+                                            >Submit</Button>
                                             </Grid>
                                             </Grid>
                                         </div>

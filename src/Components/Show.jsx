@@ -54,8 +54,8 @@ function Show(props) {
                 <Card className={classes.cv} id="all">
                 <CardContent>
                 <Typography className={classes.name}>{name.toUpperCase()}</Typography>
-                <Grid container spacing={8}>
-                    <Grid item xs={6} sm={4}>       
+                <Grid container spacing={2}>
+                    <Grid item xs={6} sm={7}>       
                         {
                             props.data.objective !== undefined ?
                             <div>
@@ -128,26 +128,26 @@ function Show(props) {
                     }
 
                     </Grid>
-                    <Grid item xs={6} sm={2}>
+                    <Grid item xs={6} sm={5}>
                     <Typography className={classes.subHeading}>CONTACT</Typography>
                     <Grid container spacing={0}>
-                    <Grid item xs={12} sm={2}>
+                    <Grid item xs={1} sm={1}>
                         
-                    <div className={classes.icon}>
-                    <Typography> <AlternateEmailIcon style={{ fontSize: 19 }} /> </Typography>
-                    <Typography> <PhoneIcon style={{ fontSize: 19 }} /> </Typography>
-                    <Typography> <HomeIcon style={{ fontSize: 19, marginBottom: 42 }} /> </Typography>
+                    <div className={classes.icons}>
+                    <Typography> <AlternateEmailIcon className={classes.icon} /> </Typography>
+                    <Typography> <PhoneIcon className={classes.icon} /> </Typography>
+                    <Typography> <HomeIcon className={classes.icon} /> </Typography>
                     {
                         linkedIn 
                         !== '' ? 
                         <Typography>
-                        <LinkedInIcon style={{ fontSize: 19 }} />
+                        <LinkedInIcon className={classes.icon} />
                         </Typography>
                         : null
                     }
                     </div>
                     </Grid>
-                    <Grid item xs={12} sm={10}>
+                    <Grid item xs={11} sm={11}>
                     <Typography className={classes.left}>{email}</Typography>
                     <Typography className={classes.left}>{phone}</Typography>
                     <Typography className={classes.left}>{address}</Typography>
@@ -169,7 +169,7 @@ function Show(props) {
                         <ul>
                             {   
                                 props.data.skill.map((skill,id) => 
-                                    <li key={id} className={classes.left}>{skill}</li>
+                                    <li key={id} className={classes.skill}>{skill}</li>
                                 )
                             }
                         </ul>

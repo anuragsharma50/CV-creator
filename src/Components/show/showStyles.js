@@ -89,9 +89,21 @@ export const useStyles = makeStyles((theme) => ({
         },
     },
     icons : {
-        marginTop: theme.spacing(0.9),
+        marginTop: theme.spacing(0.8),
         [theme.breakpoints.only('xs')]: {
-            marginTop: theme.spacing(-1),
+            marginTop: theme.spacing(-1),      
+        },
+    },
+    iconContainer: {
+        height: 29,
+        [theme.breakpoints.only('xs')]: {
+            height: 15,      
+        },
+    },
+    iconContainerLi: {
+        marginTop: 29, 
+        [theme.breakpoints.only('xs')]: {
+            marginTop: 11.3,      
         },
     },
     icon: {

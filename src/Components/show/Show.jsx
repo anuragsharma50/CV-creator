@@ -134,13 +134,13 @@ function Show(props) {
                     <Grid item xs={1} sm={1}>
                         
                     <div className={classes.icons}>
-                    <Typography> <AlternateEmailIcon className={classes.icon} /> </Typography>
-                    <Typography> <PhoneIcon className={classes.icon} /> </Typography>
-                    <Typography> <HomeIcon className={classes.icon} /> </Typography>
+                    <Typography className={classes.iconContainer}> <AlternateEmailIcon className={classes.icon} /> </Typography>
+                    <Typography className={classes.iconContainer}> <PhoneIcon className={classes.icon} /> </Typography>
+                    <Typography className={classes.iconContainer}> <HomeIcon className={classes.icon} /> </Typography>
                     {
                         linkedIn 
                         !== '' ? 
-                        <Typography>
+                        <Typography className={classes.iconContainerLi}>
                         <LinkedInIcon className={classes.icon} />
                         </Typography>
                         : null

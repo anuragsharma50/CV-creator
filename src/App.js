@@ -11,7 +11,7 @@ import Add from './Components/Add';
 import Help from './Components/Help';
 
 import Home from './Components/Home';
-import Show from './Components/Show';
+import Show from './Components/show/Show';
 import {createBrowserHistory} from 'history'; 
 
 import {Router, Route,Switch} from 'react-router-dom';

@@ -12,7 +12,7 @@ import HelpIcon from '@material-ui/icons/Help';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {

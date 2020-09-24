@@ -14,7 +14,7 @@ import Home from './Components/Home';
 import Show from './Components/show/Show';
 import {createBrowserHistory} from 'history'; 
 
-import {Router, Route,Switch} from 'react-router-dom';
+import {Router, Route,Switch,Redirect} from 'react-router-dom';
 
 const history = createBrowserHistory();
 
@@ -41,6 +41,7 @@ function App() {
           <Route path='/more' component={() => <Add />} />
           <Route path='/help' component={() => <Help />} />
           <Route path='/show' component={() => <Show data={data} />} />
+          <Redirect to='/' />
         </Switch>
       </Router>
       

@@ -31,7 +31,7 @@ export const useStyles = makeStyles((theme) => ({
         height: 1123,
         backgroundColor: 'white',
         [theme.breakpoints.only('xs')]: {
-            margin: 0,
+            margin: 'auto',
             width: 320,
             height: 452.6,
             borderRadius: 0, 
